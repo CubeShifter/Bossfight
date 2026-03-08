@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgutccu4xak5i"]
+
+[ext_resource type="FontFile" uid="uid://ckrsjj24rq54r" path="res://Asssets/GothicPixels.ttf" id="1_yanue"]
+[ext_resource type="Script" path="res://Scripts/rebinding.gd" id="2_o8eol"]
+[ext_resource type="Texture2D" uid="uid://be4h4gu53u2lu" path="res://Asssets/UIbutdark.png" id="3_1r4fq"]
+
+[sub_resource type="Theme" id="Theme_hjeum"]
+default_font = ExtResource("1_yanue")
+
+[sub_resource type="Theme" id="Theme_60525"]
+default_font = ExtResource("1_yanue")
+default_font_size = 16
+
+[node name="Rebinding" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 25.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_o8eol")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_1r4fq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Text" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 20.0
+theme = SubResource("Theme_hjeum")
+bbcode_enabled = true
+text = "[center]Credits[/center]"
+
+[node name="Button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 24.0
+theme = SubResource("Theme_60525")
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

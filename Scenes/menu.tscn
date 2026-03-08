@@ -1,0 +1,984 @@
+[gd_scene load_steps=15 format=3 uid="uid://k7ydwp48f74d"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_23lq7"]
+[ext_resource type="Texture2D" uid="uid://cp1r1mjpbm6u6" path="res://Asssets/Background.png" id="1_btmbw"]
+[ext_resource type="Texture2D" uid="uid://dqxaxwxartati" path="res://Asssets/UI.png" id="2_is4yq"]
+[ext_resource type="FontFile" uid="uid://ckrsjj24rq54r" path="res://Asssets/GothicPixels.ttf" id="3_dodjd"]
+[ext_resource type="PackedScene" uid="uid://bgutccu4xak5i" path="res://Scenes/rebinding.tscn" id="4_2yxf8"]
+[ext_resource type="Script" path="res://Scripts/spawner.gd" id="5_h1rwc"]
+[ext_resource type="Script" path="res://Scripts/texture_button.gd" id="5_vtp2b"]
+[ext_resource type="Texture2D" uid="uid://be4h4gu53u2lu" path="res://Asssets/UIbutdark.png" id="7_rewi6"]
+[ext_resource type="Texture2D" uid="uid://cw8ygb3vsjhc7" path="res://Asssets/Slider.png" id="9_rcgcv"]
+[ext_resource type="Script" path="res://Scripts/sound_bar.gd" id="10_xtsq6"]
+
+[sub_resource type="Theme" id="Theme_k1txg"]
+default_font = ExtResource("3_dodjd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kxc8"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 25.0
+bg_color = Color(0.2, 0.2, 0.278431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6m3o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtsl4"]
+
+[node name="Menu" type="Control"]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+script = ExtResource("1_23lq7")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_btmbw")
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 36.5
+offset_right = 200.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/NinePatchRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Audio[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Settings/NinePatchRect"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+where_to = &"Audio"
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 66.5
+offset_right = 200.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/NinePatchRect2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Controls[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Settings/NinePatchRect2"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+where_to = &"Controls"
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 96.5
+offset_right = 200.5
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/NinePatchRect3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Credits[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Settings/NinePatchRect3"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+where_to = &"Credits"
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 211.0
+offset_top = 96.5
+offset_right = 267.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rewi6")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/NinePatchRect4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Back
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Settings/NinePatchRect4/RichTextLabel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 21.0
+script = ExtResource("5_vtp2b")
+where_to = &"Main"
+
+[node name="Main" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 36.5
+offset_right = 200.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/NinePatchRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Play[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Main/NinePatchRect/RichTextLabel"]
+layout_mode = 0
+offset_left = -9.5
+offset_top = -4.0
+offset_right = 110.5
+offset_bottom = 21.0
+script = ExtResource("5_h1rwc")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 66.5
+offset_right = 200.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/NinePatchRect2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Tutorial[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Main/NinePatchRect2"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 96.5
+offset_right = 200.5
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/NinePatchRect3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Settings[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Main/NinePatchRect3/RichTextLabel"]
+layout_mode = 0
+offset_left = -9.5
+offset_top = -4.0
+offset_right = 110.5
+offset_bottom = 21.0
+script = ExtResource("5_vtp2b")
+where_to = &"Settings"
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 75.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/NinePatchRect3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+offset_left = 4.5
+offset_top = 5.0
+offset_right = 354.5
+offset_bottom = 230.0
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[font bt=0]Thanks to the people behind the Godot engine and Aseprite!
+Thanks to LingDong Huang for making the GothicPixels font that can be found on dafont.com! Another thanks to HitsLab for making the song I used which can be found on pixabay. Thanks to bfxr for their wonderful sound tool
+Thanks to my friends Mikey and Milo for helping me playrest and giving me feedback!
+Thanks to Redcandle Games and Team Cherry For giving me a ton of inspiration for my game!"
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = 26.5
+offset_right = 136.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rewi6")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/NinePatchRect4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Back
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Credits/NinePatchRect4/RichTextLabel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 21.0
+script = ExtResource("5_vtp2b")
+where_to = &"Settings"
+
+[node name="Controls" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_top = -2.0
+offset_right = 320.0
+offset_bottom = 178.0
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -75.0
+offset_right = 50.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/NinePatchRect3"]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -68.0
+offset_right = 131.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[font bt=16]Jump
+Attack
+Dash
+Heal
+Spell
+Up
+Down
+Left
+Right"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 18.5
+offset_right = 253.0
+offset_bottom = 318.5
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 32
+
+[node name="Rebinding" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "C"
+action = "jump"
+
+[node name="Rebinding2" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "X"
+action = "attack"
+
+[node name="Rebinding3" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "S"
+action = "dash"
+
+[node name="Rebinding4" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "A"
+action = "heal"
+
+[node name="Rebinding5" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "Z"
+action = "fireball"
+
+[node name="Rebinding6" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "Up"
+action = "up"
+
+[node name="Rebinding7" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "Down"
+action = "down"
+
+[node name="Rebinding8" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "Left"
+action = "left"
+
+[node name="Rebinding9" parent="Controls/VBoxContainer" instance=ExtResource("4_2yxf8")]
+layout_mode = 2
+text = "Right"
+action = "right"
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = 50.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rewi6")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/NinePatchRect4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Back
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Controls/NinePatchRect4/RichTextLabel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 21.0
+script = ExtResource("5_vtp2b")
+where_to = &"Settings"
+
+[node name="Restarted" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Restarted"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 36.5
+offset_right = 200.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted/NinePatchRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Do it again?[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Restarted/NinePatchRect"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_h1rwc")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Restarted"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 66.5
+offset_right = 200.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted/NinePatchRect2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Menu
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Restarted/NinePatchRect2"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+where_to = &"Main"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]You Did It![/center]"
+
+[node name="Restarted But Bad" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Restarted But Bad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 36.5
+offset_right = 200.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted But Bad/NinePatchRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Restart[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Restarted But Bad/NinePatchRect"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_h1rwc")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Restarted But Bad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = 66.5
+offset_right = 200.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted But Bad/NinePatchRect2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Menu
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Restarted But Bad/NinePatchRect2"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 120.5
+offset_bottom = 25.5
+script = ExtResource("5_vtp2b")
+where_to = &"Main"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restarted But Bad"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Try Again?[/center]"
+
+[node name="Audio" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 75.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_is4yq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Audio/NinePatchRect3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+offset_left = 4.5
+offset_top = 5.0
+offset_right = 284.5
+offset_bottom = 185.0
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[font bt=]
+SFX
+
+Music"
+
+[node name="Sound Bar" type="HSlider" parent="Audio"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 51.0
+offset_right = 303.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+theme_override_icons/grabber = ExtResource("9_rcgcv")
+theme_override_icons/grabber_highlight = ExtResource("9_rcgcv")
+theme_override_styles/slider = SubResource("StyleBoxFlat_4kxc8")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_t6m3o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wtsl4")
+max_value = 10.0
+value = 10.0
+script = ExtResource("10_xtsq6")
+bus = &"SFX"
+
+[node name="Sound Bar2" type="HSlider" parent="Audio"]
+layout_mode = 0
+offset_left = 150.5
+offset_top = 84.0
+offset_right = 302.5
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+theme_override_icons/grabber = ExtResource("9_rcgcv")
+theme_override_icons/grabber_highlight = ExtResource("9_rcgcv")
+theme_override_styles/slider = SubResource("StyleBoxFlat_4kxc8")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_t6m3o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wtsl4")
+max_value = 10.0
+value = 10.0
+script = ExtResource("10_xtsq6")
+bus = &"Music"
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = 24.0
+offset_right = 136.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rewi6")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Audio/NinePatchRect4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -8.0
+offset_right = 50.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k1txg")
+bbcode_enabled = true
+text = "[center]Back
+[/center]"
+
+[node name="menu_switcher" type="TextureButton" parent="Audio/NinePatchRect4/RichTextLabel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 21.0
+script = ExtResource("5_vtp2b")
+where_to = &"Settings"

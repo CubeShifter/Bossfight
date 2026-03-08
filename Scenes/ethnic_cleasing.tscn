@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy4yspp0km7rc"]
+
+[ext_resource type="Shader" path="res://Scripts/whiter.gdshader" id="1_ln60a"]
+[ext_resource type="Script" path="res://Scripts/ethnic_cleansing.gd" id="2_uiht7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohov8"]
+shader = ExtResource("1_ln60a")
+shader_parameter/whiteness = 0.0
+
+[node name="Ethnic Cleasing" type="CanvasLayer"]
+layer = 100
+script = ExtResource("2_uiht7")
+
+[node name="Rect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ohov8")
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2

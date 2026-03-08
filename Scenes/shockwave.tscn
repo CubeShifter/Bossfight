@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://w7wis6s2xsp6"]
+
+[ext_resource type="Script" path="res://Scripts/shockwave.gd" id="1_x45nf"]
+[ext_resource type="Texture2D" uid="uid://u8kee0phnw1f" path="res://Asssets/Shockwave.png" id="2_oyx1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj6fp"]
+size = Vector2(24, 16)
+
+[node name="Shockwave" type="Node2D"]
+script = ExtResource("1_x45nf")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_xj6fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+position = Vector2(0, -8)
+texture = ExtResource("2_oyx1y")
+flip_h = true
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_xj6fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+position = Vector2(0, -8)
+texture = ExtResource("2_oyx1y")
