@@ -3,6 +3,8 @@ You can either run the bossfight in the godot editor and export it however you l
 
 I coded this in Godot 4.3, and learned a lot about how shaders, global variables and tweens work. This was really fun, and this is the first game I have ever finished in godot, and I am really proud of it.
 
+IF THIS GAME IS TO HARD FOR YOU, then you can watch me play it here https://www.youtube.com/watch?v=O-34M_gUnCg&t=31s
+
 TUTORIAL
 This game is hard, and is highly inspired by silksong, so this game is meant for Silksong fans. You still could play without having played silksong. You can attack in all four directions, you can jump and you can dash left or right. Whenever you sucsessfully hit an enemy, you gain a lil thingy on your meter. If your meter is full, you can enter vampire mode. In vampire mode you can hit the boss to regain health, but if you get hit or after a certain time it ends. If ur meter is at least a third full, you can cast a fireballl spell in 8 directions. You can view and change the keybinds in the settings menu.
 
