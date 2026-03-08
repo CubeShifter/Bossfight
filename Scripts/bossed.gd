@@ -29,6 +29,7 @@ func _process(dt):
 			await get_tree().create_timer(0.25).timeout
 			
 			var t = randi_range(1,4)
+			print(t)
 			if t == 1:
 				patrick.shower()
 				var d = player.position.x/abs(player.position.x)

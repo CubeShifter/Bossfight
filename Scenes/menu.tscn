@@ -246,7 +246,6 @@ script = ExtResource("5_vtp2b")
 where_to = &"Main"
 
 [node name="Main" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -334,7 +333,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_k1txg")
 bbcode_enabled = true
-text = "[center]Tutorial[/center]"
+text = "[center]Settings[/center]"
 
 [node name="menu_switcher" type="TextureButton" parent="Main/NinePatchRect2"]
 layout_mode = 0
@@ -342,52 +341,6 @@ offset_left = 0.5
 offset_top = 0.5
 offset_right = 120.5
 offset_bottom = 25.5
-script = ExtResource("5_vtp2b")
-
-[node name="NinePatchRect3" type="NinePatchRect" parent="Main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 80.5
-offset_top = 96.5
-offset_right = 200.5
-offset_bottom = 121.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_is4yq")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 7
-patch_margin_top = 7
-patch_margin_right = 7
-patch_margin_bottom = 7
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Main/NinePatchRect3"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -8.0
-offset_right = 50.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_k1txg")
-bbcode_enabled = true
-text = "[center]Settings[/center]"
-
-[node name="menu_switcher" type="TextureButton" parent="Main/NinePatchRect3/RichTextLabel"]
-layout_mode = 0
-offset_left = -9.5
-offset_top = -4.0
-offset_right = 110.5
-offset_bottom = 21.0
 script = ExtResource("5_vtp2b")
 where_to = &"Settings"
 
@@ -863,6 +816,7 @@ bbcode_enabled = true
 text = "[center]Try Again?[/center]"
 
 [node name="Audio" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0

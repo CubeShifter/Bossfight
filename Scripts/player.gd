@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 	elif healing:
 		shader.material.set_shader_parameter("power", abs(heal.time_left-0.75) /3 *4)
-		print((heal.time_left-0.75) /3 *4)
+		
 		
 		
 	if Input.is_action_just_pressed("fireball") and not dashing and not healing and has_control and mana>2:

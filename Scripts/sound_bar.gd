@@ -11,5 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _value_changed(new_value: float) -> void:
-	print(new_value)
+	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus),linear_to_db(new_value/10))

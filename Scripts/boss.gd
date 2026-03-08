@@ -66,12 +66,16 @@ func _physics_process(dt):
 	
 
 func dash(dir,delay):
+	
+	shower()
 	sprite.play("dash")
 	if dir ==1:
 		sprite.flip_h = false
 	elif dir ==-1:
 		sprite.flip_h = true
-	shower()
+	else:
+		dir = 1
+	
 	velocity = Vector2.ZERO
 	can_attack =false
 	position = Vector2(dir*-120,66)
